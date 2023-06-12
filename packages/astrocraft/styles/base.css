@@ -1,0 +1,436 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    height: 100%;
+
+    --mc-block-size: 48px;
+
+    --mc-color-white: rgb(255, 255, 255);
+    --mc-color-gray-1: #d1d5db;
+    --mc-color-gray-2: #C6C6C6;
+    --mc-color-gray-3: #a8a29e;
+    --mc-color-gray-4: #3d3c3d;
+    --mc-color-gray-5: #373737;
+    --mc-color-gray-6: #212121;
+    --mc-color-black: rgb(0, 0, 0);
+    --mc-color-text-accent: #aaaaff;
+    --mc-color-text-active: #fef08a;
+
+    --mc-color-text: var(--mc-color-white);
+
+    --mc-font: 'Minecraft';
+    --mc-font-mono: 'Monocraft';
+    --mc-text-shadow: 0.075em 0.075em var(--mc-color-black);
+    --mc-content-width: 85ch;
+  }
+
+  body {
+    color: var(--mc-color-text);
+    text-shadow: var(--mc-text-shadow);
+  }
+
+  * {
+    image-rendering: auto;
+  }
+
+  [class*="mc-"],
+  [class*="bg-mc-block"],
+  [class*="bg-mc-item"],
+  [class*="bg-mc-icon"],
+  [class*="bg-mc-painting"],
+  [class*="bg-mc-gui"] {
+    image-rendering: pixelated;
+  }
+
+  [class*="bg-mc-block"],
+  [class*="bg-mc-item"] {
+    background-repeat: repeat;
+    background-size: var(--mc-block-size);
+    -o-background-size: var(--mc-block-size);
+    -moz-background-size: var(--mc-block-size);
+    -webkit-background-size: var(--mc-block-size);
+  }
+
+  [class*="bg-mc-icon"],
+  [class*="bg-mc-painting"] {
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+  }
+
+  a {
+    color: var(--mc-color-text-accent);
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: var(--mc-color-text-active);
+  }
+
+  table {
+    border-collapse: separate;
+  }
+
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/fonts/Minecraft-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/fonts/Minecraft-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/fonts/Minecraft-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/fonts/Minecraft-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Monocraft';
+    src: url('../assets/fonts/Monocraft.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Minecrafter';
+    src: url('../assets/fonts/Minecrafter.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Minecrafter Alt';
+    src: url('../assets/fonts/MinecrafterAlt.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Minecraft Evenings';
+    src: url('../assets/fonts/MinecraftEvenings.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+
+
+
+
+
+@layer components {
+  .mc-sign {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    text-shadow: none;
+    background-size: cover;
+    background-image: var(--mc-gui-sign);
+    white-space: pre-line;
+    color: var(--mc-color-black);
+  }
+
+  .mc-book {
+    --size: calc((var(--mc-block-size) / var(--mc-gui-zoom, 4) * 3));
+    overflow: hidden;
+    border-width: var(--size);
+    border-style: solid;
+    border-left-width: calc(var(--size) / 1.5);
+    border-image: var(--mc-gui-book);
+    border-image-width: var(--size) var(--size) var(--size) calc(var(--size) / 1.5);
+    border-image-slice: 8.5% 15% 12.75% 10% fill;
+    border-image-repeat: stretch;
+    color: var(--mc-color-black);
+    text-shadow: none;
+  }
+
+  .mc-button {
+    user-select: none;
+    cursor: pointer;
+    image-rendering: pixelated;
+    background-size: cover;
+    background-image: var(--mc-gui-button-inside);
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-button-border);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 10% 3%;
+    border-image-repeat: stretch;
+    text-decoration: none;
+    text-shadow: 1.5px 1.5px var(--mc-color-black);
+    color: var(--mc-color-gray-1);
+  }
+
+  .mc-button:hover {
+    background-size: cover;
+    background-image: var(--mc-gui-button-inside-active);
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-button-border-active);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 10% 3%;
+    border-image-repeat: stretch;
+    text-decoration: none;
+    color: var(--mc-color-text-active);
+  }
+
+  .mc-button:active {
+    background-size: cover;
+    background-image: var(--mc-gui-button-inside-disabled);
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-button-border-disabled);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 10% 3%;
+    border-image-repeat: contain;
+    text-decoration: none;
+    color: var(--mc-color-gray-3);
+  }
+
+  .mc-table th {
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: var(--mc-color-gray-4);
+  }
+
+  .mc-table {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-panel);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 43% 43% fill;
+    border-image-repeat: stretch;
+  }
+
+  .mc-table td {
+    position: relative;
+    padding: 0 0.25rem;
+    color: var(--mc-color-white);
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-slot);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  blockquote {
+    @apply mc-book;
+  }
+}
+
+
+
+
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: var(--mc-text-shadow)
+  }
+
+  /* Scrollbar */
+
+  .scrollbar-mc {
+    scrollbar-width: thin;
+    scrollbar-color: var(--mc-color-gray-3) var(--mc-color-gray-2);
+  }
+
+  .scrollbar-mc::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  .scrollbar-mc::-webkit-scrollbar-thumb {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-scroll-thumb);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .scrollbar-mc::-webkit-scrollbar-thumb:active {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-scroll-thumb-active);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .scrollbar-mc::-webkit-scrollbar-track {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-slot);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .scrollbar-mc::-webkit-scrollbar-corner {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-raised-slot);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  /* Backgrounds */
+
+  .bg-mc-map {
+    box-sizing: content-box;
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 4));
+    border-image: var(--mc-gui-map);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 4));
+    border-image-slice: 12.75% 15.75% fill;
+    border-image-repeat: repeat;
+  }
+
+  .bg-mc-achievement {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-achievement);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 45.5% 45.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-panel {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-panel);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 43% 43% fill;
+    border-image-repeat: stretch;
+  }
+
+
+
+
+
+  .bg-mc-gui-slot {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-slot);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-button,
+  .bg-mc-gui-raised {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-raised);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-button:hover,
+  .bg-mc-gui-raised-active {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-raised-active);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-button:active,
+  .bg-mc-gui-raised-disabled {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-raised-disabled);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+
+
+  .bg-mc-gui-alt-button,
+  .bg-mc-gui-alt-raised {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-alt-raised);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-alt-button:hover,
+  .bg-mc-gui-alt-raised-active {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-alt-raised-active);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-alt-button:active,
+  .bg-mc-gui-alt-raised-disabled {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-alt-raised-disabled);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-alt-textbox-active,
+  .bg-mc-gui-alt-textbox {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 16));
+    border-image: var(--mc-gui-alt-textbox);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 16));
+    border-image-slice: 40% 40% fill;
+    border-image-repeat: stretch;
+  }
+
+  .bg-mc-gui-alt-textbox-active:focus,
+  .bg-mc-gui-alt-textbox-active:active {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 16));
+    border-image: var(--mc-gui-alt-textbox-active);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 16));
+    border-image-slice: 40% 40% fill;
+    border-image-repeat: stretch;
+  }
+
+  /* Borders */
+
+  .border-mc-gui-panel {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image: var(--mc-gui-border-panel);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 10));
+    border-image-slice: 43% 43% fill;
+    border-image-repeat: stretch;
+  }
+
+  .border-mc-gui-slot {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-border-slot);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+
+  .border-mc-gui-raised {
+    border-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image: var(--mc-gui-border-raised);
+    border-image-width: calc(var(--mc-block-size) / var(--mc-gui-zoom, 24));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+  }
+}

@@ -1,16 +1,11 @@
 {
-  "name": "@example/minimal",
-  "version": "0.0.1",
+  "name": "astrocraft-root",
   "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "license": "MIT",
   "devDependencies": {
-    "@astrojs/tailwind": "^1.0.0",
-    "astro": "^1.0.7"
+    "astro": "^3.1.1"
   }
 }
