@@ -5,14 +5,14 @@ import plugin from 'tailwindcss/plugin';
 
 const fileName = (path: string) => path.split("/").pop()?.split(".")[0];
 
-const blockSpacings = Array.from({ length: 99 }).reduce(
-  (obj: Record<string, string>, _, i) => {
-    i++
-    return {
-			...obj,
-			[i + '-block']: 'calc(var(--mc-block-size) * ' + i + ')'
-		};
-  }, {}
+const blockSpacings = Object.fromEntries(
+	Array.from({ length: 99 }, (_, i) => i + 1)
+		.map(i => [`${i}-block`, `calc(var(--mc-block-size) * ${i})`])
+)
+
+const blockSizeUtility = Object.fromEntries(
+	Array.from({ length: 64 }, (_, i) => (i + 1) * 4)
+		.map(i => [`.mc-block-size-${i}`, { '--mc-block-size': i + 'px' }])
 )
 
 function backgroundImageClasses(folder: string) {
@@ -24,18 +24,6 @@ function backgroundImageClasses(folder: string) {
     return values;
   }, {});
 }
-
-const blockSizeUtility = Array.from({ length: 64 }).reduce(
-  (obj: Record<string, Record<string, string>>, _, i) => {
-		i = (i + 1) * 4
-    return {
-			...obj,
-			['.mc-block-size-' + i]: {
-				'--mc-block-size': i + 'px'
-			}
-		};
-  }, {}
-)
 
 const guiZoomUtility = Array.from({ length: 32 }).reduce(
   (obj: Record<string, Record<string, string>>, _, i) => {

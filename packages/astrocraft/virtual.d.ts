@@ -1,20 +1,20 @@
-declare module 'virtual:astrocraft/context' {
+declare module 'astrocraft/context' {
   const Config: import('astro').AstroConfig;
 	export default Config;
 }
 
-declare module 'virtual:astrocraft/config' {
+declare module 'astrocraft/config' {
   const Config: import('./types').AstrocraftUserConfig;
   export default Config;
 }
 
-declare module 'virtual:astrocraft/components' {
+declare module 'astrocraft/components' {
 	export const Layout: typeof import('./layouts/Layout.astro').default;
 	export const Navbar: typeof import('./components/Navbar.astro').default;
   export const Footer: typeof import('./components/Footer.astro').default;
 }
 
-declare module 'virtual:astrocraft/assets' {
+declare module 'astrocraft/assets' {
   type ImageMetadata = import('astro').ImageMetadata;
   export const logo: ImageMetadata;
   export const blocks: Record<string, ImageMetadata>;
@@ -24,4 +24,4 @@ declare module 'virtual:astrocraft/assets' {
   export const gui: Record<string, ImageMetadata>;
 }
 
-declare module 'virtual:astrocraft/css' {}
+declare module 'astrocraft/css' {}

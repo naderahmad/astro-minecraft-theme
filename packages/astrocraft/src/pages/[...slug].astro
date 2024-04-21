@@ -1,7 +1,7 @@
 ---
 import type { InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content'
-import { Layout }  from 'virtual:astrocraft/components'
+import { Layout } from 'astrocraft/layouts'
 
 export async function getStaticPaths() {
   const normalizeIndexSlug = (slug: string) => (slug === 'index' ? '' : slug);

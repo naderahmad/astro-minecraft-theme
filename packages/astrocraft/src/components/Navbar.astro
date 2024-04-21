@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import { logo } from "virtual:astrocraft/assets";
-import config from "virtual:astrocraft/config";
+// import { Image } from "astro:assets";
+// import { logo } from "astrocraft/assets";
+import config from "astrocraft/config";
 ---
 
 <header class="bg-mc-block-dirt decoration-[.25em]">
@@ -10,7 +10,7 @@ import config from "virtual:astrocraft/config";
       class="flex flex-col md:flex-row items-center justify-end h-3-block md:h-2-block w-full gap-1/8-block p-5 pt-0 md:pb-0 bg-gradient-to-t from-black/75 to-black/25"
     >
       <a href="/" class="h-auto w-6-block md:w-9-block mx-auto md:ml-0">
-        <Image src={logo} alt={config?.logo?.alt ?? ""} />
+        <img src={config?.logo?.src ?? "/mc/logo.png"} alt={config?.logo?.alt ?? ""} />
       </a>
       <nav class="flex items-center justify-end w-full md:w-min gap-3 text-2xl">
         <slot />

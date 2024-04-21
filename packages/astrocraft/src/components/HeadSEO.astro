@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import type { HeadUserConfig } from "../types";
-import config from "virtual:astrocraft/config";
-import { blocks, items } from "../assets/images";
-import { createHead } from "../utils/head";
-import { fileWithBase } from "../utils/base";
-import { version } from "../package.json";
+import type { HeadUserConfig } from "../../types";
+import config from "astrocraft/config";
+// import { blocks, items } from "../../assets/images";
+import { createHead } from "../../utils/head";
+import { fileWithBase } from "../../utils/base";
+import { version } from "../../package.json";
 
 interface Props {
   data: CollectionEntry<"pages">["data"];
@@ -16,8 +16,8 @@ const { data } = Astro.props;
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site)
   : undefined;
-const title = data?.title || config.title;
-const description = data?.description || config.description;
+const title = data?.title || config!.title;
+const description = data?.description || config!.description;
 
 const headDefaults: HeadUserConfig = [
   { tag: "meta", attrs: { charset: "utf-8" } },
@@ -37,8 +37,8 @@ const headDefaults: HeadUserConfig = [
   //   tag: "link",
   //   attrs: {
   //     rel: "shortcut icon",
-  //     href: { block: blocks, item: items }[config.favicon.type][
-  //       config.favicon.name
+  //     href: { block: blocks, item: items }[config!.favicon.type][
+  //       config!.favicon.name
   //     ].src,
   //     type: "image/png",
   //   },
@@ -47,9 +47,9 @@ const headDefaults: HeadUserConfig = [
   { tag: "meta", attrs: { property: "og:title", content: title } },
   { tag: "meta", attrs: { property: "og:type", content: "article" } },
   { tag: "meta", attrs: { property: "og:url", content: canonical?.href } },
-  { tag: "meta", attrs: { property: "og:locale", content: config.lang } },
+  { tag: "meta", attrs: { property: "og:locale", content: config!.lang } },
   { tag: "meta", attrs: { property: "og:description", content: description } },
-  { tag: "meta", attrs: { property: "og:site_name", content: config.title } },
+  { tag: "meta", attrs: { property: "og:site_name", content: config!.title } },
   // Twitter Tags
   {
     tag: "meta",
@@ -76,18 +76,18 @@ if (Astro.site) {
   });
 }
 
-// Link to Twitter account if set in Starlight config.
-if (config.social?.twitter) {
+// Link to Twitter account if set in Starlight config!.
+if (config!.social?.twitter) {
   headDefaults.push({
     tag: "meta",
     attrs: {
       name: "twitter:site",
-      content: new URL(config.social.twitter).pathname,
+      content: new URL(config!.social.twitter).pathname,
     },
   });
 }
 
-const head = createHead(headDefaults, config.head, data?.head);
+const head = createHead(headDefaults, config!.head, data?.head);
 ---
 
 {
