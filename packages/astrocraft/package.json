@@ -5,7 +5,8 @@
   "scripts": {},
   "keywords": [
     "astro",
-    "withastro"
+    "withastro",
+    "astro-integration"
   ],
   "author": "Bryce Russell",
   "license": "MIT",
@@ -17,30 +18,22 @@
   "bugs": "https://github.com/brycerussell/astrocraft/issues",
   "homepage": "https://minecraft-theme.netlify.app",
   "type": "module",
-  "exports": {
-    ".": "./index.ts",
-    "./pages/*": "./pages/*",
-    "./layouts/*": "./layouts/*",
-    "./components/*": "./components/*",
-    "./styles/*": "./styles/*",
-    "./assets/*": "./assets/*",
-    "./schema": "./content-schema.ts"
-  },
+  "main": "index.ts",
   "peerDependencies": {
     "astro": "^3.1.1",
     "sharp": "^0.32.6",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "@types/node": "^20.6.3",
-    "astro": "^3.1.1"
+    "@types/node": "^20.12.7",
+    "astro": "^4.6.3"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "astro-theme-provider": "^0.0.3",
-    "fast-glob": "^3.3.1",
+    "@astrojs/mdx": "^2.3.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.12",
+    "astro-theme-provider": "^0.1.2",
+    "fast-glob": "^3.3.2",
     "sharp": "^0.32.6"
   }
 }
