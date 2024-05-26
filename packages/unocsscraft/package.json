@@ -1,0 +1,26 @@
+{
+	"name": "unocsscraft",
+	"version": "0.0.1",
+	"description": "Minecraft theme for UnoCSS",
+	"scripts": {},
+	"keywords": ["unocss", "tailwind", "minecraft"],
+	"author": "Bryce Russell",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brycerussell/astro-minecraft-theme",
+		"directory": "packages/unocsscraft"
+	},
+	"bugs": "https://github.com/brycerussell/astro-minecraft-theme/issues",
+	"homepage": "https://minecraft-theme.netlify.app",
+	"exports": {
+		".": "./index.ts",
+		"./fonts": "./assets/fonts/index.css"
+	},
+	"dependencies": {
+		"@types/node": "^20.12.12",
+		"fast-glob": "^3.3.2",
+		"mrmime": "^2.0.0",
+		"unocss": "^0.60.2"
+	}
+}

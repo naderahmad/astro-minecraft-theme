@@ -1,39 +1,41 @@
 {
-  "name": "astrocraft",
-  "version": "0.0.1",
-  "description": "Minecraft theme for Astro",
-  "scripts": {},
-  "keywords": [
-    "astro",
-    "withastro",
-    "astro-integration"
-  ],
-  "author": "Bryce Russell",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/brycerussell/astrocraft",
-    "directory": "packages/astrocraft"
-  },
-  "bugs": "https://github.com/brycerussell/astrocraft/issues",
-  "homepage": "https://minecraft-theme.netlify.app",
-  "type": "module",
-  "main": "index.ts",
-  "peerDependencies": {
-    "astro": "^3.1.1",
-    "sharp": "^0.32.6",
-    "tailwindcss": "^3.0.24"
-  },
-  "devDependencies": {
-    "@types/node": "^20.12.7",
-    "astro": "^4.6.3"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^2.3.1",
-    "@astrojs/tailwind": "^5.1.0",
-    "@tailwindcss/typography": "^0.5.12",
-    "astro-theme-provider": "^0.1.2",
-    "fast-glob": "^3.3.2",
-    "sharp": "^0.32.6"
-  }
+	"name": "astrocraft",
+	"description": "Minecraft theme for Astro",
+	"version": "0.0.1",
+	"license": "MIT",
+	"author": "Bryce Russell",
+	"keywords": [
+		"astro",
+		"withastro",
+		"astro-integration"
+	],
+	"bugs": "https://github.com/brycerussell/astrocraft/issues",
+	"homepage": "https://minecraft-theme.netlify.app",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brycerussell/astrocraft",
+		"directory": "packages/astrocraft"
+	},
+	"scripts": {},
+	"type": "module",
+	"exports": {
+		".": "./index.ts",
+		"./unocss": "./unocss.ts"
+	},
+	"peerDependencies": {
+		"astro": "^3.0.0",
+		"sharp": "^0.32.6"
+	},
+	"devDependencies": {
+		"@types/node": "^20.12.12",
+		"astro": "^4.9.1"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^3.0.1",
+		"astro-integration-kit": "^0.13.3",
+		"astro-theme-provider": "^0.5.0",
+		"sharp": "^0.33.4",
+		"unocss": "^0.60.2",
+		"unocsscraft": "workspace:^"
+	}
 }

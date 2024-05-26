@@ -1,48 +1,33 @@
 ---
-import config from "astrocraft/config";
-import CSSProps from "../components/CSSProps.astro";
-import { pathWithBase } from "../../utils/base";
-
-import "astrocraft/css";
-
-const { lang, blockSize } = config;
+import "astrocraft:styles";
 ---
 
-<html
-  {lang}
-  style={(blockSize && `--mc-block-size:${blockSize}px;`) || null}
-  class="h-full"
->
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Not found</title>
-    <CSSProps />
-  </head>
-  <body class="flex flex-col h-full scrollbar bg-mc-block-dirt select-none">
-    <div class="grow bg-black/75">
-      <div class="flex flex-col items-center justify-center h-full gap-8">
-        <h1
-          id="_error-code"
-          class="text-shadow-sm text-7xl md:text-9xl text-mc-dark-red"
+<html>
+  <head></head>
+  <body
+    class="dark grid place-items-center min-h-screen p-0 m-0 bg-block-dirt bg-light-level-4 font-minecraft scrollbar"
+  >
+    <div class="flex flex-col items-center justify-center h-full gap-8">
+      <h1
+        id="_error-code"
+        class="text-shadow-sm text-7xl md:text-9xl font-normal text-minecraft-red-dark"
+      >
+        404
+      </h1>
+      <div
+        class="flex flex-col items-center max-w-3xl w-full gap-3 px-12 md:px-24"
+      >
+        <p id="_error-top" class="m-0 text-center text-neutral-300">
+          Failed to connect to the server
+        </p>
+        <p id="_error-bottom" class="m-0 text-center text-white">
+          Error: internal server error
+        </p>
+        <a
+          href="/"
+          class="minecraft-button zoom-16 text-center w-[36rem] py-2 px-8 mt-1 text-lg"
+          >Back to title screen</a
         >
-          404
-        </h1>
-        <div
-          class="flex flex-col items-center max-w-3xl w-full gap-1 px-12 md:px-24"
-        >
-          <p id="_error-top" class="text-center text-mc-gray-2">
-            Failed to connect to the server
-          </p>
-          <p id="_error-bottom" class="text-center text-white">
-            Error: internal server error
-          </p>
-          <a
-            href={pathWithBase("/")}
-            class="mc-button text-center w-full py-2 px-8 mt-1 text-lg"
-            >Back to title screen</a
-          >
-        </div>
       </div>
     </div>
 
@@ -50,8 +35,8 @@ const { lang, blockSize } = config;
       const errorCodeElement = document.getElementById("_error-code");
 
       setInterval(() => {
-        errorCodeElement.classList.toggle("text-mc-dark-red");
-        errorCodeElement.classList.toggle("text-mc-red");
+        errorCodeElement.classList.toggle("text-minecraft-red-dark");
+        errorCodeElement.classList.toggle("text-minecraft-red");
       }, 1250);
 
       const topMessageElement = document.getElementById("_error-top");
@@ -74,7 +59,7 @@ const { lang, blockSize } = config;
           "A fatal error has occured, this connection has been teminated",
           "Internal Exception: java.IOException: An existing connection was forcibly closed by the remote host",
         ],
-        "Diconnected by server": [
+        "Disconnected by server": [
           "Internal server error",
           "Outdated server!",
           "You logged in from another location",

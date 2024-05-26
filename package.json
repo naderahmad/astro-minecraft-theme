@@ -1,11 +1,16 @@
 {
-  "name": "astrocraft-root",
-  "private": true,
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {},
-  "license": "MIT",
-  "devDependencies": {
-    "astro": "^4.6.3"
-  }
+	"name": "astrocraft-root",
+	"private": true,
+	"packageManager": "pnpm@9.1.1",
+	"engines": {
+		"node": ">=18.19.0"
+	},
+	"scripts": {
+		"lint": "biome check .",
+		"lint:fix": "biome check --apply ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3",
+		"astro": "^4.8.6"
+	}
 }

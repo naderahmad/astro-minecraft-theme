@@ -1,20 +1,18 @@
-import type { AstroIntegration } from 'astro';
-import { AstrocraftConfigSchema } from './schemas';
-import { fileURLToPath } from 'node:url';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
-import defineTheme from 'astro-theme-provider';
+import { z } from 'astro/zod';
+import defineTheme from "astro-theme-provider";
+import minecraftStyles from "./unocss";
+import mdx from "@astrojs/mdx";
 
-const tailwindConfigPath = fileURLToPath(new URL('./tailwind.config.ts', import.meta.url))
+export const minecraftTheme = defineTheme({
+	name: "astrocraft",
+	schema: z.object({}),
+	integrations: [mdx(), minecraftStyles()],
+	imports: {
+		styles: [
+			'./src/styles/reset.css',
+			'./src/styles/minecraft.css'
+		]
+	}
+});
 
-const AstroCraftProvider = defineTheme({
-  schema: AstrocraftConfigSchema
-})
-
-export default function AstroCraft(opts: Parameters<typeof AstroCraftProvider>[0]) : AstroIntegration[] {
-  return [
-    AstroCraftProvider(opts),
-    tailwind({ configFile: tailwindConfigPath, applyBaseStyles: false }),
-    mdx()
-  ]
-}
+export { minecraftTheme as default }

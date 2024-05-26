@@ -1,0 +1,21 @@
+body {
+
+}
+
+body.dark {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text-accent)
+}
+
+a:hover,
+a:active {
+  color: var(--color-text-active)
+}
+
+a:active {
+  text-decoration: underline;
+}

@@ -1,24 +1,24 @@
 ---
-import type { InferGetStaticPropsType } from 'astro';
-import { getCollection } from 'astro:content'
-import { Layout } from 'astrocraft/layouts'
+import { getCollection } from "astro:content";
+import { Layout } from "astrocraft:layouts";
+import type { InferGetStaticPropsType } from "astro";
 
 export async function getStaticPaths() {
-  const normalizeIndexSlug = (slug: string) => (slug === 'index' ? '' : slug);
-  const pages = await getCollection('pages')
-  return pages.map(page => {
-    return {
-      params: { slug: normalizeIndexSlug(page.slug) || undefined },
-      props: { page }
-    }
-  })
+	const normalizeIndexSlug = (slug: string) => (slug === "index" ? "" : slug);
+	const pages = await getCollection("minecraft");
+	return pages.map((page) => {
+		return {
+			params: { slug: normalizeIndexSlug(page.slug) || undefined },
+			props: { page },
+		};
+	});
 }
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { page } = Astro.props
+const { page } = Astro.props;
 
-const { Content } = await page.render()
+const { Content } = await page.render();
 ---
 
 <Layout data={page.data}>
