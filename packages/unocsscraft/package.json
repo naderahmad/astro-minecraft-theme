@@ -1,9 +1,9 @@
 {
 	"name": "unocsscraft",
 	"version": "0.0.1",
-	"description": "Minecraft theme for UnoCSS",
+	"description": "A Minecraft theme for UnoCSS",
 	"scripts": {},
-	"keywords": ["unocss", "tailwind", "minecraft"],
+	"keywords": ["unocss", "unocss-preset", "tailwind", "minecraft", "mine", "craft", "mc"],
 	"author": "Bryce Russell",
 	"license": "MIT",
 	"repository": {
