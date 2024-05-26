@@ -1,12 +1,12 @@
+import { existsSync } from "node:fs";
+import { dirname, extname, isAbsolute, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { AstroIntegration } from "astro";
-import { fileURLToPath } from 'node:url';
-import { dirname, extname, isAbsolute, resolve } from 'node:path';
 import { addIntegration, hasIntegration } from "astro-integration-kit";
+import { AstroError } from "astro/errors";
 import { presetWind } from "unocss";
 import unoCSS from "unocss/astro";
 import { presetMCCore, presetMCGUI, presetMCTypography, presetMCUtilities } from "unocsscraft";
-import { existsSync } from "node:fs";
-import { AstroError } from "astro/errors";
 
 type Prettify<T> = {
 	[K in keyof T]: T[K];
@@ -19,19 +19,14 @@ interface Options extends Prettify<NonNullable<Parameters<typeof unoCSS>[0]>> {
 }
 
 export default function (options: Options = {}): AstroIntegration {
-	const {
-		assetDir = "./",
-		inlineFonts = false,
-		tailwindPreset = true,
-		...optionsUnoCSS
-	} = options;
+	const { assetDir = "./", inlineFonts = false, tailwindPreset = true, ...optionsUnoCSS } = options;
 
 	return {
 		name: "astrocraft",
 		hooks: {
 			"astro:config:setup": (params) => {
 				if (!inlineFonts) {
-					params.injectScript('page-ssr', `import "unocsscraft/fonts";`)
+					params.injectScript("page-ssr", `import "unocsscraft/fonts";`);
 				}
 
 				const presets = [
@@ -39,14 +34,14 @@ export default function (options: Options = {}): AstroIntegration {
 					presetMCTypography({ inlineFonts }),
 					presetMCGUI(),
 					presetMCUtilities({ assetDir: resolveDirectory(params.config.root, assetDir) }),
-				]
+				];
 
 				if (tailwindPreset) {
-					presets.push(presetWind())
+					presets.push(presetWind());
 				}
 
-				optionsUnoCSS.presets ||= []
-				optionsUnoCSS.presets.push(...presets)
+				optionsUnoCSS.presets ||= [];
+				optionsUnoCSS.presets.push(...presets);
 
 				const integration = unoCSS(optionsUnoCSS);
 

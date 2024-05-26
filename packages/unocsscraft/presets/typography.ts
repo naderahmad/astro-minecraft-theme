@@ -30,9 +30,9 @@ export const presetMCTypography = definePreset((options: PresetCoreOptions = {})
 
 	for (const filepath of fontFiles) {
 		const filename = basename(filepath).slice(0, -extname(filepath).length);
-		const [ fontname, weight, style ] = filename.split("_");
+		const [fontname, weight, style] = filename.split("_");
 		if (!(weight || style)) {
-			fontFaces.set(fontname, "")
+			fontFaces.set(fontname, "");
 		}
 		if (inlineFonts) {
 			fontFaces.set(fontname, inlineFontFace(filepath) + (fontFaces.get(fontname) || ""));
@@ -47,7 +47,7 @@ export const presetMCTypography = definePreset((options: PresetCoreOptions = {})
 				([_, name], { rawSelector }) => {
 					if (!name) return;
 					if (!fontFaces.has(name)) return;
-					const fontface = fontFaces.get(name) || '';
+					const fontface = fontFaces.get(name) || "";
 					const selector = toEscapedSelector(rawSelector);
 					return `
           ${selector} {

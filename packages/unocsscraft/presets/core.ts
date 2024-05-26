@@ -21,7 +21,7 @@ export const presetMCCore = definePreset((options: PresetCoreOptions = {}): Pres
 				},
 				color: {
 					//  Website/Typography colors
-					"text": "#e0d0d0",
+					text: "#e0d0d0",
 					"text-accent": "#aaaaff",
 					"text-active": "#fef08a",
 
