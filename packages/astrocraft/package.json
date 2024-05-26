@@ -1,10 +1,19 @@
 {
 	"name": "astrocraft",
-	"description": "Minecraft theme for Astro",
+	"description": "A Minecraft theme for Astro",
 	"version": "0.0.1",
 	"license": "MIT",
 	"author": "Bryce Russell",
-	"keywords": ["astro", "withastro", "astro-integration"],
+	"keywords": [
+		"astro",
+		"withastro",
+		"astro-integration",
+		"astro-theme-provider",
+		"minecraft",
+		"mine",
+		"craft",
+		"mc"
+	],
 	"bugs": "https://github.com/brycerussell/astrocraft/issues",
 	"homepage": "https://minecraft-theme.netlify.app",
 	"repository": {
@@ -20,7 +29,7 @@
 	},
 	"peerDependencies": {
 		"astro": "^3.0.0",
-		"sharp": "^0.32.6"
+		"sharp": "^0.33.4"
 	},
 	"devDependencies": {
 		"@types/node": "^20.12.12",
@@ -31,7 +40,7 @@
 		"astro-integration-kit": "^0.13.3",
 		"astro-theme-provider": "^0.5.0",
 		"sharp": "^0.33.4",
-		"unocss": "^0.60.2",
+		"unocss": "^0.60.3",
 		"unocsscraft": "workspace:^"
 	}
 }

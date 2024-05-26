@@ -1,9 +1,17 @@
 {
 	"name": "unocsscraft",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A Minecraft theme for UnoCSS",
 	"scripts": {},
-	"keywords": ["unocss", "unocss-preset", "tailwind", "minecraft", "mine", "craft", "mc"],
+	"keywords": [
+		"unocss",
+		"unocss-preset",
+		"tailwind",
+		"minecraft",
+		"mine",
+		"craft",
+		"mc"
+	],
 	"author": "Bryce Russell",
 	"license": "MIT",
 	"repository": {
@@ -21,6 +29,6 @@
 		"@types/node": "^20.12.12",
 		"fast-glob": "^3.3.2",
 		"mrmime": "^2.0.0",
-		"unocss": "^0.60.2"
+		"unocss": "^0.60.3"
 	}
 }
