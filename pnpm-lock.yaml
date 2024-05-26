@@ -38,6 +38,9 @@ importers:
       astrocraft:
         specifier: workspace:^
         version: link:../../packages/astrocraft
+      unocsscraft:
+        specifier: workspace:^
+        version: link:../../packages/unocsscraft
 
   packages/astrocraft:
     dependencies:
