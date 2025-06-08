@@ -2,7 +2,7 @@
 import '~/css/base.css'
 import Navbar from "~/components/Navbar.astro";
 import Footer from "~/components/Footer.astro";
-
+const BASE_URL = import.meta.env.BASE_URL;
 const {
 	block="stone",
 	size=48,
@@ -31,7 +31,7 @@ const min_footer_height = 3
 		<meta name="generator" content={Astro.generator} />
 		<title>Minecraft Theme</title>
 		<link rel="icon" href="/favicon.ico" />
-		<link rel="stylesheet" href="/css/minecraft.css">
+		<link rel="stylesheet" href="`${BASE_URL}css/minecraft.css`">
 	</head>
 	<body class="scrollbar">
 		<slot name="first"/>
