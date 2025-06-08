@@ -15,27 +15,36 @@ const paintings = painting_files.map(file => {
 
 <Base>
 <div class="flex flex-col justify-center w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto gap-5 py-5 px-2 markdown">
-    <h3 class=" underline text-2xl sm:text-4xl text-white">Astro Minecraft Theme</h3>
+    <h3 class=" underline text-2xl sm:text-4xl text-white">Servidor Ahmadia</h3>
     <p class="indent-5 text-white">
-        Show off your server, document your projects, build with blocks, display items and paintings, create game like GUIs, and tons more! This is a complete Minecraft theme with a documentation template built using Astro and Tailwindcss.
-        Check out the <a href="/docs" class="text-link hover:underline">docs</a> page for more information on how to use the theme and its features
+        🌍 Un mundo creado solo para nosotros. Este es un servidor privado de Minecraft. Aquí podemos construir, explorar y vivir aventuras a nuestro ritmo, sin preocupaciones de lag, caídas o que el mundo desaparezca. Está en línea 24/7, siempre listo para cuando queramos jugar. Un espacio seguro, divertido y nuestro.
     </p>
-    <h3 class="text-center  underline text-4xl text-white">Features</h3>
+    <h3 class="text-center  underline text-4xl text-white">Descargas</h3>
     <div class="flex items-center justify-center">
         <ul>
-            <li>Display over 200+ items</li>
-            <li>Build with 100+ blocks</li>
-            <li>Repeating block backgrounds</li>
-            <li>All 25 paintings</li>
-            <li>Block based units/sizes</li>
-            <li>Create GUIs using panels, slots, and buttons</li>
-            <li>Misc UIs like maps, books, signs, and more</li>
-            <li>Minecraft typography using the Minecraft's font, text colors, and text shadows</li>
-            <li>75+ Minecraft themed colors</li>
-            <li>Markdown theme</li>
-            <li>Documentation system</li>
+            <li>Iris Shaders (En Installation Type seleccionar Iris + Fabric): <a href="https://github.com/IrisShaders/Iris-Installer/releases/download/3.2.1/Iris-Installer-3.2.1.jar" class="link">Descargar</a></li>
+            <li>Mods (Descargar todos los archivos y pegarlos dentro de la carpeta Mods): <a href="https://drive.google.com/drive/folders/1BnY9VgjBwpMnp2d5nEC8s7g8ymJbuBTd?usp=drive_link" class="link">Descargar</a></li>
+            <li>Shaders Pack: instalar en el TLauncher el shader pack llamado BSL para mejorar los gráficos. Una vez instalado, debes activarlo en el menú de Minecraft/Gráficos/Shaders Pack</li>
         </ul>
     </div>
-    <a href="/docs" class="self-center py-2 px-5 my-5 button text-shadow-lg text-2xl">Get started</a>
+    <a 
+    id="copy-ip-btn"
+    href="#"
+    class="self-center py-2 px-5 my-5 button text-shadow-lg text-2xl text-white bg-green-600 hover:bg-green-700 rounded transition">
+    Empezar Ahora
+  </a>
 </div>
+<script>
+    // Como es módulo y defer, el DOM ya estará listo
+    const btn = document.getElementById('copy-ip-btn');
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        await navigator.clipboard.writeText('15.235.12.192:2116');
+        btn.textContent = 'IP del servidor copiada';
+      } catch (err) {
+        console.error('No se pudo copiar la IP:', err);
+      }
+    });
+  </script>
 </Base>
